@@ -1,6 +1,29 @@
 <html>
 <head>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/loadCSS/2.1.0/loadCSS.min.js" type="text/javascript"></script>
+	<script>
+var $HA=window.$HA={callbacks:[],callbackIndex:1000,lazyLoaded:{index:0,resources:{},callbacks:{}},deferredCSS:[]};var errorHandler=function(debugInfo)
+{var debugData=debugInfo.data,debugServer=debugInfo.server;return function(m,u,l)
+{var c=window.onerror.caller||(window.onerror.arguments[4]&&window.onerror.arguments[4].stack)||'';var i=new Image();var page=window.location.href;var width=Math.max(document.documentElement.clientWidth,window.innerWidth||0);var height=Math.max(document.documentElement.clientHeight,window.innerHeight||0);i.src='/c/error/js-error-handler.zx?m='+encodeURIComponent(m)+'&u='+encodeURIComponent(u)+'&l='+encodeURIComponent(l)+'&c='+encodeURIComponent((''+c).replace(/[+]/g,'%2b'))+'&dd='+encodeURIComponent(debugData)+'&s='+encodeURIComponent(debugServer)+'&p='+encodeURIComponent(page)+'&dm='+document.documentMode+'&width='+width+'&height='+height;window.onerror=function(){return false;};return false;};};document.documentElement.className+=' js';Object.defineProperty(Array.prototype,"addToQueue",{enumerable:false,writable:true,value:function(callback,index,dependencies){index=index||$HA.callbackIndex++;if(index<1){throw'Callback indices must be greater than zero.';}
+var item={i:index,f:callback,d:dependencies||[]};return this.push(item);}});$HA.lazyLoad=function(files,callback,test){var newStylesheetIndex=document.styleSheets?document.styleSheets.length-1:0;test=test||function(){return true;};var id=$HA.lazyLoaded['index']++;for(var index=0;index<files.length;index++){var file=files[index];if(isLoaded(file)){queue(file,callback,test);processGroupCallbacks(file);}else if(exists(file)){queue(file,callback,test);}else{$HA.lazyLoaded['resources'][getIndex(file)]={loaded:false,queue:[]};queue(file,callback,test);load(file);}}
+function getIndex(file){return file.replace(/\.\d+\.(js|css)/g,".$1");}
+function load(file){if(getFileType(file)==='css'){appendStylesheet(file);newStylesheetIndex++;}
+if(getFileType(file)==='js'){appendScriptAndCallCallback(file);}}
+function exists(file){return $HA.lazyLoaded['resources'][getIndex(file)]!==undefined;}
+function isLoaded(file){return exists(file)&&$HA.lazyLoaded['resources'][getIndex(file)]['loaded']===true;}
+function queue(file,callback,test){if(callback&&(!$HA.lazyLoaded['callbacks'][id]||!$HA.lazyLoaded['callbacks'][id]['executed'])){$HA.lazyLoaded['resources'][getIndex(file)]['queue'].push({id:id});$HA.lazyLoaded['callbacks'][id]={callback:callback,test:test,dependencies:files,executed:false};}}
+function getFileType(file){return typeof(file)==='string'?file.slice(-3).replace('.','').toLowerCase():'';}
+function appendStylesheet(url){var loaded=false;var firstScript=document.getElementsByTagName('script')[0],head=firstScript.parentNode,oLink=document.createElement("link");oLink.rel="stylesheet";oLink.href=url;oLink.media="only x";oLink.onload=function(){if(!loaded){loaded=true;if(this.media!='all')this.media="all";if(this.rel!='stylesheet')this.rel="stylesheet";processGroupCallbacks(url);}};head.insertBefore(oLink,firstScript||head.firstChild);}
+function appendScriptAndCallCallback(url){var firstScript=document.getElementsByTagName('script')[0],head=firstScript.parentNode,oScript=document.createElement('script');oScript.setAttribute('src',url);oScript.setAttribute('type','text/javascript');oScript.setAttribute('charset','utf-8');if(url.indexOf('heritagestatic')!==-1){oScript.setAttribute('crossorigin','anonymous');}
+if(oScript.addEventListener){oScript.addEventListener('load',function(){processGroupCallbacks(url);},false);}
+head.insertBefore(oScript,firstScript||head.firstChild);}
+function isReady(item){var filesToLoad=0;for(var index=0;index<item['dependencies'].length;index++){if(!isLoaded(item['dependencies'][index])){filesToLoad++;}}
+return filesToLoad===0;}
+function processGroupCallbacks(file){$HA.lazyLoaded['resources'][getIndex(file)]['loaded']=true;if(callback!==undefined){executeQueue(file);for(var index=0;index<files.length;index++){if(files[index]!==file&&exists(files[index])){executeQueue(files[index]);}}}}
+function executeQueue(file){var queue=$HA.lazyLoaded['resources'][getIndex(file)]['queue'];if(queue.length>0){var group,item;for(var index=0;index<queue.length;index++){group=queue[index];if(group['id']>=0&&$HA.lazyLoaded['callbacks'][group['id']]&&!$HA.lazyLoaded['callbacks'][group['id']]['executed']){item=$HA.lazyLoaded['callbacks'][group['id']];if(isReady(item)){queue[index]={};execute(item['callback'],item['test']);$HA.lazyLoaded['callbacks'][group['id']]={executed:true};}}}}}
+function execute(callback,test){var call=false;try{call=test.call();}catch(e){}
+if(call){callback.call();}else{var retry=setInterval(function(){try{call=test.call();}catch(e){}
+if(call){clearInterval(retry);callback.call();}},500);}}};
+	</script>
 	<style>
 		.text { display: none; }
 	</style>
@@ -10,7 +33,7 @@
 	<script type="text/javascript">
 	//<![CDATA[
 	window.onload=function(){
-		loadCSS('/test.css');
+		$HA.lazyLoad('test.css');
 	}
 //]]></script>
 </body>
