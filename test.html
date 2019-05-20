@@ -1,5 +1,8 @@
 <html>
 <head>
+	<style>
+		.text { display: none; }
+	</style>
 	<script>
 		// Place to queue up our onload callbacks
 var $HA = window.$HA = { callbacks: [], callbackIndex: 1000, lazyLoaded: {index: 0, resources: {}, callbacks: {}}, deferredCSS: [] };
@@ -245,9 +248,6 @@ $HA.lazyLoad = function(files, callback, test) {
 };
 
 	</script>
-	<style>
-		.text { display: none; }
-	</style>
 </head>
 <body>
 	<div class="text">Hello</div>
