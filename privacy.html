@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Budget Manager</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .privacy-container {
+      max-width: 780px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: var(--color-surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .privacy-container h1 {
+      font-size: 1.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .privacy-container .meta {
+      color: var(--color-text-light);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .privacy-container h2 {
+      font-size: 1.15rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .privacy-container h3 {
+      font-size: 1rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-container p,
+    .privacy-container li {
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+    .privacy-container ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .privacy-container a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    .privacy-container a:hover {
+      text-decoration: underline;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="privacy-container">
+    <a href="/" class="back-link">&larr; Back to Budget Manager</a>
+
+    <h1>Privacy Policy</h1>
+    <p class="meta">Version 1.0 &mdash; Effective February 13, 2026</p>
+
+    <h2>1. Introduction</h2>
+    <p>This Privacy Policy describes how Budget Manager ("the application") collects, uses, stores, and protects your information, including financial data obtained through Plaid Technologies, Inc. ("Plaid").</p>
+    <p>Budget Manager is a single-user, self-hosted personal finance application. The application operator and the sole end user are the same person.</p>
+
+    <h2>2. Information We Collect</h2>
+    <h3>Information You Provide Directly</h3>
+    <ul>
+      <li><strong>Account credentials:</strong> A username and password used to authenticate with the application. Passwords are hashed and never stored in plaintext.</li>
+      <li><strong>Financial records:</strong> Transaction descriptions, amounts, dates, categories, account names, loan details, and balances that you enter manually.</li>
+    </ul>
+    <h3>Information Collected via Plaid</h3>
+    <p>When you connect a financial institution through Plaid Link, the application may receive:</p>
+    <ul>
+      <li><strong>Account information:</strong> Account name, type, and current/available balances.</li>
+      <li><strong>Transaction data:</strong> Transaction descriptions, amounts, dates, categories, and merchant information.</li>
+    </ul>
+    <p>Only the data necessary for budgeting and financial tracking is requested.</p>
+
+    <h2>3. How We Use Your Information</h2>
+    <p>Your information is used exclusively for:</p>
+    <ul>
+      <li>Displaying account balances and transaction history</li>
+      <li>Categorizing transactions and calculating income, expenses, and budgets</li>
+      <li>Generating financial summaries and charts</li>
+      <li>Authenticating your session</li>
+    </ul>
+    <p>Your information is <strong>never</strong> used for advertising, marketing, profiling, or any purpose other than personal financial tracking. Your data is never sold, rented, or shared with third parties.</p>
+
+    <h2>4. Information Sharing</h2>
+    <p>Budget Manager does <strong>not</strong> share your personal or financial information with any third party. The only external service the application communicates with is Plaid, which retrieves your financial data from your bank. No analytics, advertising, or other third-party services are used.</p>
+
+    <h2>5. Data Storage and Security</h2>
+    <p>All data is stored in a database on the self-hosted server that runs the application. No data is stored in third-party cloud services. Security measures include:</p>
+    <ul>
+      <li><strong>Encryption in transit:</strong> All communication is encrypted via TLS 1.2/1.3.</li>
+      <li><strong>Authentication:</strong> Secure session-based login with bcrypt-hashed passwords.</li>
+      <li><strong>Network isolation:</strong> The database is not accessible from the internet.</li>
+      <li><strong>Input validation:</strong> All input is validated and all queries are parameterized.</li>
+      <li><strong>Credential protection:</strong> API keys and secrets are stored in environment variables, never in source code.</li>
+    </ul>
+
+    <h2>6. Data Retention and Deletion</h2>
+    <p>Financial data is retained until you choose to delete it. You may delete individual records or all data at any time through the application. Session data expires after 7 days. Plaid access tokens can be revoked at any time.</p>
+
+    <h2>7. Your Rights</h2>
+    <p>As the sole user and operator, you have complete control over your data, including the ability to access, export (CSV), modify, and permanently delete any or all stored information.</p>
+
+    <h2>8. Third-Party Services — Plaid</h2>
+    <p>This application uses <a href="https://plaid.com" rel="noopener">Plaid</a> to connect to financial institutions. When you connect an account via Plaid Link, your data is also subject to Plaid's policies:</p>
+    <ul>
+      <li><a href="https://plaid.com/legal/#end-user-privacy-policy" rel="noopener">Plaid End User Privacy Policy</a></li>
+    </ul>
+
+    <h2>9. Changes to This Policy</h2>
+    <p>This policy may be updated to reflect changes in the application's functionality. The version and date at the top of this page will be updated accordingly.</p>
+
+    <h2>10. Contact</h2>
+    <p>For questions about this privacy policy, contact the application operator directly.</p>
+  </div>
+</body>
+</html>
